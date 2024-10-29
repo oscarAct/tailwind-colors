@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+@use "sass:meta";
+@import url('remixicon/fonts/remixicon.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary-50: #eafaf1;
+    --primary-100: #d6f5e2;
+    --primary-200: #abedc5;
+    --primary-300: #80e5a8;
+    --primary-400: #53df8b;
+    --primary-500: #4de68a;
+    --primary-600: #27a559;
+    --primary-700: #1e7b43;
+    --primary-800: #14522d;
+    --primary-900: #0a2916;
+    --primary-950: #05140b;
+}  
+
+* {
+    font-family: Inter, Arial, Helvetica, sans-serif !important;
+}
+*::selection {
+    background-color: var(--primary-500);
+    color: white
+}
+
+html[data-theme="light"] {
+    @include meta.load-css("../node_modules/highlight.js/styles/stackoverflow-light.min.css");
+  }
+  html[data-theme="dark"] {
+    @include meta.load-css("../node_modules/highlight.js/styles/night-owl.min.css");
+  }

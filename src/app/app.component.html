@@ -1,336 +1,629 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<style>
-  :host {
-    --bright-blue: oklch(51.01% 0.274 263.83);
-    --electric-violet: oklch(53.18% 0.28 296.97);
-    --french-violet: oklch(47.66% 0.246 305.88);
-    --vivid-pink: oklch(69.02% 0.277 332.77);
-    --hot-red: oklch(61.42% 0.238 15.34);
-    --orange-red: oklch(63.32% 0.24 31.68);
-
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
-
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --pill-accent: var(--bright-blue);
-
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1 {
-    font-size: 3.125rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
-
-  p {
-    margin: 0;
-    color: var(--gray-700);
-  }
-
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
-  .angular-logo {
-    max-width: 9.2rem;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-
-  .content h1 {
-    margin-top: 1.75rem;
-  }
-
-  .content p {
-    margin-top: 1.5rem;
-  }
-
-  .divider {
-    width: 1px;
-    background: var(--red-to-pink-to-purple-vertical-gradient);
-    margin-inline: 0.5rem;
-  }
-
-  .pill-group {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .pill {
-    display: flex;
-    align-items: center;
-    --pill-accent: var(--bright-blue);
-    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
-    color: var(--pill-accent);
-    padding-inline: 0.75rem;
-    padding-block: 0.375rem;
-    border-radius: 2.75rem;
-    border: 0;
-    transition: background 0.3s ease;
-    font-family: var(--inter-font);
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    letter-spacing: -0.00875rem;
-    text-decoration: none;
-  }
-
-  .pill:hover {
-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
-  }
-
-  .pill-group .pill:nth-child(6n + 1) {
-    --pill-accent: var(--bright-blue);
-  }
-  .pill-group .pill:nth-child(6n + 2) {
-    --pill-accent: var(--french-violet);
-  }
-  .pill-group .pill:nth-child(6n + 3),
-  .pill-group .pill:nth-child(6n + 4),
-  .pill-group .pill:nth-child(6n + 5) {
-    --pill-accent: var(--hot-red);
-  }
-
-  .pill-group svg {
-    margin-inline-start: 0.25rem;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 0.73rem;
-    margin-top: 1.5rem;
-  }
-
-  .social-links path {
-    transition: fill 0.3s ease;
-    fill: var(--gray-400);
-  }
-
-  .social-links a:hover svg path {
-    fill: var(--gray-900);
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
-    }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--red-to-pink-to-purple-horizontal-gradient);
-      margin-block: 1.5rem;
-    }
-  }
-</style>
-
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 982 239"
-        fill="none"
-        class="angular-logo"
-      >
-        <g clip-path="url(#a)">
-          <path
-            fill="url(#b)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-          <path
-            fill="url(#c)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
+<div class="w-full h-screen text-black dark:text-zink-50 transition-colors duration-300">
+  <div
+    class="fixed w-full top-0 z-50 flex h-14 items-center justify-between gap-12 px-4 transition sm:px-6 lg:z-30 lg:px-8 backdrop-blur-md dark:backdrop-blur bg-white/[var(--bg-opacity-light)] dark:bg-zink-900/[var(--bg-opacity-dark)]"
+    style="--bg-opacity-light: 0.5; --bg-opacity-dark: 0.2;">
+    <div class="w-full flex justify-between items-center container mx-auto">
+      <svg width="auto" height="28" viewBox="0 0 369.7027027027027 47.29729729729729" class="looka-1j8o68f">
+        <defs id="SvgjsDefs1182"></defs>
+        <g id="SvgjsG1183" featurekey="PG4fjM-0"
+          transform="matrix(0.05127078294754028,0,0,0.05127078294754028,-1.9739251446568518,-1.9226543616787517)"
+          class="fill-primary-500">
+          <polygon xmlns="http://www.w3.org/2000/svg" class="st0" points="696.7,239.6 508.5,37.5 508.5,441.7 "
+            style="stroke: #1ed67c; stroke-width: 1.1669; stroke-miterlimit: 10;"></polygon>
+          <polygon xmlns="http://www.w3.org/2000/svg" class="st0" points="822.2,454.8 832.1,178.8 546.2,464.6 "
+            style="stroke: #1ed67c; stroke-width: 1.1669; stroke-miterlimit: 10;"></polygon>
+          <polygon xmlns="http://www.w3.org/2000/svg" class="st0" points="758.9,695.7 961,507.5 556.8,507.5 "
+            style="stroke: #1ed67c; stroke-width: 1.1669; stroke-miterlimit: 10;"></polygon>
+          <polygon xmlns="http://www.w3.org/2000/svg" class="st0" points="543.7,821.2 819.7,831.1 533.9,545.2 "
+            style="stroke: #1ed67c; stroke-width: 1.1669; stroke-miterlimit: 10;"></polygon>
+          <polygon xmlns="http://www.w3.org/2000/svg" class="st0" points="302.8,757.9 491,960 491,555.8 "
+            style="stroke: #1ed67c; stroke-width: 1.1669; stroke-miterlimit: 10;"></polygon>
+          <polygon xmlns="http://www.w3.org/2000/svg" class="st0" points="177.3,542.7 167.4,818.7 453.3,532.9 "
+            style="stroke: #1ed67c; stroke-width: 1.1669; stroke-miterlimit: 10;"></polygon>
+          <polygon xmlns="http://www.w3.org/2000/svg" class="st0" points="240.6,301.8 38.5,490 442.7,490 "
+            style="stroke: #1ed67c; stroke-width: 1.1669; stroke-miterlimit: 10;"></polygon>
+          <polygon xmlns="http://www.w3.org/2000/svg" class="st0" points="455.8,176.3 179.8,166.4 465.6,452.3 "
+            style="stroke: #1ed67c; stroke-width: 1.1669; stroke-miterlimit: 10;"></polygon>
+          <circle xmlns="http://www.w3.org/2000/svg" class="st0" cx="502.7" cy="497" r="31.4"
+            style="stroke: #1ed67c; stroke-width: 1.1669; stroke-miterlimit: 10;"></circle>
         </g>
-        <defs>
-          <radialGradient
-            id="c"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientTransform="rotate(118.122 171.182 60.81) scale(205.794)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#FF41F8" />
-            <stop offset=".707" stop-color="#FF41F8" stop-opacity=".5" />
-            <stop offset="1" stop-color="#FF41F8" stop-opacity="0" />
-          </radialGradient>
-          <linearGradient
-            id="b"
-            x1="0"
-            x2="982"
-            y1="192"
-            y2="192"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#F0060B" />
-            <stop offset="0" stop-color="#F0070C" />
-            <stop offset=".526" stop-color="#CC26D5" />
-            <stop offset="1" stop-color="#7702FF" />
-          </linearGradient>
-          <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
-        </defs>
+        <g id="SvgjsG1184" featurekey="jxYttZ-0"
+          transform="matrix(2.173339366912842,0,0,2.173339366912842,66.34799777898715,-4.692036277980357)"
+          class="fill-black dark:fill-white">
+          <path
+            d="M7.48 20 l-3.1 0 l0 -10.86 l-4.08 0 l0 -2.84 l11.26 0 l0 2.84 l-4.08 0 l0 10.86 z M17.66 12.16 c-1.52 0 -2.7 1.24 -2.7 2.76 c0 1.54 1.18 2.76 2.7 2.76 c1.6 0 2.8 -1.22 2.8 -2.76 c0 -1.52 -1.24 -2.76 -2.8 -2.76 z M20.42 20 l0 -0.76 c-0.72 0.56 -1.84 0.9 -3 0.9 c-2.8 0 -5.18 -2.26 -5.18 -5.22 s2.38 -5.28 5.18 -5.28 c1.16 0 2.28 0.36 3 0.92 l0 -0.82 l2.78 0 l0 10.26 l-2.78 0 z M27.099999999999998 8.86 l-2.78 0 l0 -2.56 l2.78 0 l0 2.56 z M27.099999999999998 20 l-2.78 0 l0 -10.26 l2.78 0 l0 10.26 z M31.019999999999996 20 l-2.8 0 l0 -13.7 l2.8 0 l0 13.7 z M40.72 20 l-1.4 -5.86 l-1.4 5.86 l-3.52 0 l-2.62 -10.26 l2.8 0 l1.68 7.06 l1.74 -7.06 l2.8 0 l1.72 7.1 l1.7 -7.1 l2.7 0 l-2.64 10.26 l-3.56 0 z M50.459999999999994 8.86 l-2.78 0 l0 -2.56 l2.78 0 l0 2.56 z M50.459999999999994 20 l-2.78 0 l0 -10.26 l2.78 0 l0 10.26 z M54.31999999999999 9.74 l0 1.04 c0.5 -0.58 1.56 -1.22 2.98 -1.22 c2.4 0 3.96 1.66 3.96 4.14 l0 6.3 l-2.76 0 l0 -5.82 c0 -1.22 -0.7 -2.06 -1.88 -2.06 c-1.36 0 -2.26 0.86 -2.26 2.28 l0 5.6 l-2.78 0 l0 -10.26 l2.74 0 z M67.61999999999999 17.68 c1.6 0 2.8 -1.22 2.8 -2.76 c0 -1.52 -1.24 -2.76 -2.8 -2.76 c-1.52 0 -2.7 1.24 -2.7 2.76 c0 1.54 1.18 2.76 2.7 2.76 z M70.38 20 l0 -0.76 c-0.72 0.56 -1.84 0.9 -3 0.9 c-2.8 0 -5.18 -2.26 -5.18 -5.22 s2.38 -5.28 5.18 -5.28 c1.16 0 2.28 0.36 3 0.92 l0 -4.26 l2.78 0 l0 13.7 l-2.78 0 z M84.11999999999999 16.18 l-2.52 0 l0 3.82 l-3.1 0 l0 -13.7 l5.9 0 c3.12 0 4.88 2.18 4.88 4.84 c0 2.8 -1.94 5.04 -5.16 5.04 z M83.94 9.14 l-2.34 0 l0 4.2 l2.44 0 c1.32 0 2.12 -0.88 2.12 -2.12 s-0.78 -2.08 -2.22 -2.08 z M95.58 12.16 c-1.52 0 -2.7 1.24 -2.7 2.76 c0 1.54 1.18 2.76 2.7 2.76 c1.6 0 2.8 -1.22 2.8 -2.76 c0 -1.52 -1.24 -2.76 -2.8 -2.76 z M98.34 20 l0 -0.76 c-0.72 0.56 -1.84 0.9 -3 0.9 c-2.8 0 -5.18 -2.26 -5.18 -5.22 s2.38 -5.28 5.18 -5.28 c1.16 0 2.28 0.36 3 0.92 l0 -0.82 l2.78 0 l0 10.26 l-2.78 0 z M105.04 20 l-2.8 0 l0 -13.7 l2.8 0 l0 13.7 z M108.96000000000001 20 l-2.8 0 l0 -13.7 l2.8 0 l0 13.7 z M120.16000000000001 17.8 c-1 1.5 -2.58 2.44 -4.86 2.44 c-3.28 0 -5.4 -2.3 -5.4 -5.34 c0 -2.96 2.2 -5.36 5.42 -5.36 c3.24 0 5.2 2.24 5.2 5.22 c0 0.4 -0.04 0.92 -0.04 0.98 l-7.84 0 c0.3 1.3 1.28 2.14 2.72 2.14 c1.24 0 2.14 -0.54 2.72 -1.36 z M115.30000000000001 11.82 c-1.3 0 -2.2 0.7 -2.56 1.86 l4.98 0 c-0.3 -1.24 -1.3 -1.86 -2.42 -1.86 z M125.58000000000001 9.74 l2.52 0 l0 2.48 l-2.52 0 l0 4.12 c0 0.92 0.42 1.28 1.36 1.28 l1.16 0 l0 2.38 l-1.36 0 c-2.72 0 -3.94 -1.22 -3.94 -3.52 l0 -4.26 l-1.48 0 l0 -2.48 l1.48 0 l0 -2.64 l2.78 0 l0 2.64 z M139.22000000000003 17.8 c-1 1.5 -2.58 2.44 -4.86 2.44 c-3.28 0 -5.4 -2.3 -5.4 -5.34 c0 -2.96 2.2 -5.36 5.42 -5.36 c3.24 0 5.2 2.24 5.2 5.22 c0 0.4 -0.04 0.92 -0.04 0.98 l-7.84 0 c0.3 1.3 1.28 2.14 2.72 2.14 c1.24 0 2.14 -0.54 2.72 -1.36 z M134.36 11.82 c-1.3 0 -2.2 0.7 -2.56 1.86 l4.98 0 c-0.3 -1.24 -1.3 -1.86 -2.42 -1.86 z">
+          </path>
+        </g>
       </svg>
-      <h1>Hello, {{ title }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
-    </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            [href]="item.link"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>{{ item.title }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
-            >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-              />
-            </svg>
-          </a>
-        }
-      </div>
-      <div class="social-links">
-        <a
-          href="https://github.com/angular/angular"
-          aria-label="Github"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Github"
-          >
-            <path
-              d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://twitter.com/angular"
-          aria-label="Twitter"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Twitter"
-          >
-            <path
-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw"
-          aria-label="Youtube"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="29"
-            height="20"
-            viewBox="0 0 29 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Youtube"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M27.4896 1.52422C27.9301 1.96749 28.2463 2.51866 28.4068 3.12258C29.0004 5.35161 29.0004 10 29.0004 10C29.0004 10 29.0004 14.6484 28.4068 16.8774C28.2463 17.4813 27.9301 18.0325 27.4896 18.4758C27.0492 18.9191 26.5 19.2389 25.8972 19.4032C23.6778 20 14.8068 20 14.8068 20C14.8068 20 5.93586 20 3.71651 19.4032C3.11363 19.2389 2.56449 18.9191 2.12405 18.4758C1.68361 18.0325 1.36732 17.4813 1.20683 16.8774C0.613281 14.6484 0.613281 10 0.613281 10C0.613281 10 0.613281 5.35161 1.20683 3.12258C1.36732 2.51866 1.68361 1.96749 2.12405 1.52422C2.56449 1.08095 3.11363 0.76113 3.71651 0.596774C5.93586 0 14.8068 0 14.8068 0C14.8068 0 23.6778 0 25.8972 0.596774C26.5 0.76113 27.0492 1.08095 27.4896 1.52422ZM19.3229 10L11.9036 5.77905V14.221L19.3229 10Z"
-            />
-          </svg>
-        </a>
-      </div>
+      <i (click)="toggleDarkMode()" class="ri-sun-line text-xl text-zink-600 cursor-pointer dark:text-zink-50"></i>
     </div>
   </div>
-</main>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-<router-outlet />
+  <div class="container mx-auto relative h-screen">
+    <div
+      class="absolute inset-0 -z-10 bg-gradient-to-r from-primary-400 to-primary-100 h-1/2 opacity-30 [mask-image:radial-gradient(farthest-side_at_top,white,transparent)] dark:from-primary-500/20 dark:to-primary-600/20 dark:opacity-20">
+    </div>
+    <section class="main-banner text-center py-10 px-5 mt-10 w-full md:w-3/4 mx-auto">
+      <h3 class="text-5xl font-bold">Tailwind Palette Studio</h3>
+      <h4 class="text-3xl font-bold mt-5">Create stunning color schemes for your Tailwind projects effortlessly</h4>
+    </section>
+    <section class="color-pallette-tool mt-20">
+      <div class="rounded-lg bg-card text-card-foreground shadow-sm" data-id="2" data-v0-t="card">
+        <div class="flex flex-col space-y-1.5 p-6" data-id="3">
+          <h3 class="text-2xl font-semibold leading-none tracking-tight" data-id="4">Advanced Tailwind CSS Color Palette
+            Generator</h3>
+          <p class="text-sm text-zink-400" data-id="5">Choose a color, select the base shade, and generate a
+            Tailwind-like color palette</p>
+        </div>
+        <div class="p-6 pt-0" data-id="6">
+          <form class="space-y-4" data-id="7">
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-4" data-id="8">
+              <div class="space-y-2" data-id="9">
+                <label
+                  class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  for="colorPicker" data-id="10">Choose Color</label>
+                <input [(ngModel)]="hexColor" (ngModelChange)="generatePallette($event)"
+                  class="flex dark:focus:ring-zink-500/30 dark:bg-zink-950 w-full bg-transparent dark:text-zink-50 placeholder:text-zink-200 text-zink-700 text-sm border border-zink-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-zink-500 hover:border-zink-300 h-10 ring-4 ring-transparent focus:ring-zink-100 dark:border-zink-600"
+                  id="colorPicker" data-id="11" type="color" value="#6a51e1" name="color">
+              </div>
+              <div class="space-y-2">
+                <label
+                  class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  for="hex-color" data-id="10">Hex Color</label>
+                <input [(ngModel)]="hexColor" (ngModelChange)="generatePallette($event)" name="hex-color" type="text"
+                  id="hex-color" placeholder="Type Here..."
+                  class="w-full uppercase dark:focus:ring-zink-500/30 dark:bg-zink-950 bg-transparent dark:text-zink-50 placeholder:text-zink-200 text-zink-700 text-sm border border-zink-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-zink-500 hover:border-zink-300 h-10 ring-4 ring-transparent focus:ring-zink-100 dark:border-zink-600" />
+              </div>
+              <div class="space-y-2">
+                <label
+                  class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  for="base-shade" data-id="10">Base Shade</label>
+                <select [(ngModel)]="baseShade" (ngModelChange)="handleBaseShadeChange($event)" name="base-shade"
+                  id="base-shade"
+                  class="w-full dark:focus:ring-zink-500/30 bg-transparent text-zink-700 dark:text-zink-50 dark:bg-zink-950 appearance-none placeholder:text-zink-200 text-sm border border-zink-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-zink-500 hover:border-zink-300 h-10 ring-4 ring-transparent focus:ring-zink-100 dark:border-zink-600">
+                  <option value="50">50</option>
+                  <option value="100">100</option>
+                  <option value="200">200</option>
+                  <option value="300">300</option>
+                  <option value="400">400</option>
+                  <option value="500" selected="">500</option>
+                  <option value="600">600</option>
+                  <option value="700">700</option>
+                  <option value="800">800</option>
+                  <option value="900">900</option>
+                  <option value="950">950</option>
+                </select>
+              </div>
+              <div class="space-y-2">
+                <label
+                  class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  for="color-name" data-id="10">Color Name</label>
+                <input [(ngModel)]="paletteConfig.name" (ngModelChange)="createShaped()" type="text" name="color-name" id="color-name" placeholder="Type Here..."
+                  class="w-full dark:focus:ring-zink-500/30 dark:bg-zink-950 bg-transparent dark:text-zink-50 placeholder:text-zink-200 text-zink-700 text-sm border border-zink-200 rounded-md px-3 py-2 transition duration-300 ease focus:outline-none focus:border-zink-500 hover:border-zink-300 h-10 ring-4 ring-transparent focus:ring-zink-100 dark:border-zink-600" />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="pallete mt-5">
+      <div class="rounded-lg bg-card text-card-foreground shadow-sm" data-id="25" data-v0-t="card">
+        <div class="p-6">
+          <h3 class="text-2xl font-semibold leading-none tracking-tight" data-id="27">{{ paletteConfig.name }} Palette</h3>
+          <button (click)="toggleModal()"
+            class="rounded-md min-w-40 max-w-80 mt-5 bg-gradient-to-tr from-zink-200 to-zink-300 hover:opacity-80 dark:from-zink-500 dark:to-zink-600 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-zink-700 focus:shadow-none active:bg-zink-700 hover:bg-zink-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            type="button">
+            Export palette <i class="ri-clipboard-line text-lg ml-2"></i>
+          </button>
+        </div>
+        <div class="grid grid-cols-11 p-6 gap-1 md:gap-3">
+          @for (color of pallette; track $index) {
+          @if(color.stop !== 0 && color.stop !== 1000) {
+          <div class="col-span-1 flex flex-col justify-center items-center">
+            <div class="w-full rounded-md h-16" [style]="'background-color: ' + color.hex"></div>
+            <div class="font-bold mt-2 rotate-90 md:rotate-0">{{color.stop}}</div>
+            <div class="uppercase hidden lg:block text-sm text-zink-300 dark:text-zink-100">{{ color.hex }}</div>
+          </div>
+          }
+          }
+        </div>
+      </div>
+    </section>
+    <section class="examples mt-5">
+      <div class="rounded-lg bg-card text-card-foreground shadow-sm" data-id="25" data-v0-t="card">
+        <div class="flex flex-col space-y-1.5 p-6" data-id="26">
+          <h3 class="text-2xl font-semibold leading-none tracking-tight" data-id="27">Take a look at your brand-new
+            palette</h3>
+          <h4 class="text-sm text-zink-400">Immerse yourself in how your website could look with these sample components.</h4>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-5 mt-5 p-6 gap-5">
+          <div class="col-span-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+            <div class="grid gap-5">
+              <div class="col-span-1">
+                <div class="notes w-full rounded-2xl overflow-hidden shadow-lg border dark:border-zink-600/50">
+                  <section
+                    class="header bg-gradient-to-r from-primary-500 to-primary-400 flex justify-between items-center p-3">
+                    <i class="ri-folder-fill text-4xl opacity-40 text-white"></i>
+                    <div class="users">
+                      <div className="flex items-center -space-x-6">
+                        <img alt="user 1"
+                          src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1480&amp;q=80"
+                          class="relative inline-block h-8 w-8 !rounded-full  border-2 border-primary-800/70 -ml-3 object-cover object-center hover:z-10 focus:z-10" />
+                        <img alt="user 2"
+                          src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1061&amp;q=80"
+                          class="relative inline-block h-8 w-8 !rounded-full border-2 border-primary-800/70 -ml-3 object-cover object-center hover:z-10 focus:z-10" />
+                        <img alt="user 3"
+                          src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1288&amp;q=80"
+                          class="relative inline-block h-8 w-8 !rounded-full border-2 border-primary-800/70 -ml-3 object-cover object-center hover:z-10 focus:z-10" />
+                      </div>
+                    </div>
+                  </section>
+                  <section class="body">
+                    <div class="relative flex flex-col shadow-sm dark:bg-zink-700">
+                      <nav class="flex min-w-[240px] flex-col gap-1 p-1.5">
+                        <div role="button"
+                          class="pointer-events-none border-b border-zink-100 dark:border-zink-600 opacity-50 text-zink-800 flex w-full items-center p-3 transition-all hover:bg-zink-100 dark:hover:bg-zink-700 dark:text-zink-50">
+                          Inbox
+                        </div>
+                        <div role="button"
+                          class="text-zink-800 border-b border-zink-100 dark:border-zink-600 flex w-full items-center rounded-md p-3 transitio:bg-zink-100 dark:hover:bg-zink-700 dark:text-zink-50">
+                          Trash
+                        </div>
+                        <div role="button"
+                          class="text-zink-800 border-b border-zink-100 dark:border-zink-600 flex w-full items-center rounded-md p-3 transitio:bg-zink-100 dark:hover:bg-zink-700 dark:text-zink-50">
+                          Profile
+                        </div>
+                        <div role="button"
+                          class="text-zink-800 border-b border-zink-100 dark:border-zink-600 flex w-full items-center rounded-md p-3 transitio:bg-zink-100 dark:hover:bg-zink-700 dark:text-zink-50">
+                          Messages
+                        </div>
+                        <div role="button"
+                          class="text-zink-800 border-zink-100 dark:border-zink-600 flex w-full items-center rounded-md p-3 transitio:bg-zink-100 dark:hover:bg-zink-700 dark:text-zink-50">
+                          Settings
+                        </div>
+                      </nav>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <div class="col-span-1">
+                <div class="photo relative w-full rounded-2xl shadow-xl bg-cover bg-no-repeat bg-center"
+                  style="aspect-ratio: 631 / 947; background-image: url(https://plus.unsplash.com/premium_photo-1673957923985-b814a9dbc03d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
+                  <div
+                    class="overlay absolute inset-0 max-h-1/2 rounded-2xl bg-gradient-to-t from-primary-500 to-transparent opacity-100 h-3/4 mt-auto flex items-end p-5 ">
+                    <p class="text-3xl font-bold text-white">
+                      Be the best version of you
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-span-1">
+                <div
+                  class="relative flex flex-col bg-white shadow-xl border border-zink-50 dark:border-zink-600/40 dark:bg-zink-700 rounded-2xl p-2">
+                  <div
+                    class="relative flex w-full p-3 pr-12 text-sm text-white bg-gradient-to-r from-primary-500 to-primary-400 rounded-md">
+                    Please update your card details.
+                    <button
+                      class="flex items-center justify-center transition-all w-8 h-8 rounded-md hover:bg-white/10 active:bg-white/10 absolute top-1.5 right-1.5"
+                      type="button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        class="h-5 w-5" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="p-3">
+                    <div class="flex items-center mb-2">
+                      <h5 class="ml-2  text-xl font-semibold">
+                        Custom CMS for startup
+                      </h5>
+                    </div>
+                    <p class="block leading-normal font-light mb-4">
+                      Because it&apos;s about motivating the doers. Because I&apos;m here to follow my dreams and
+                      inspire others.
+                    </p>
+                    <div>
+                      <a href="#" class=" font-semibold text-sm hover:underline flex items-center">
+                        Learn More
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24"
+                          stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="grid gap-5">
+              <div class="col-span-1">
+                <div
+                  class="flex flex-col rounded-2xl bg-white dark:bg-zink-700 max-w-96 p-8 border border-zink-50 dark:border-zink-600/40 shadow-lg">
+                  <div class="pb-8 m-0 mb-8 text-center text-zink-800 border-b border-zink-200">
+                    <p class="text-sm uppercase font-semibold text-zink-500">
+                      standard
+                    </p>
+                    <h1 class="flex justify-center gap-1 mt-4 font-bold text-zink-800 dark:text-zink-50 text-6xl">
+                      <span class="text-3xl">$</span>29
+                      <span class="self-end text-3xl">/mo</span>
+                    </h1>
+                  </div>
+                  <div class="p-0">
+                    <ul class="flex flex-col gap-4">
+                      <li class="flex items-center gap-4">
+                        <span
+                          class="p-1 border rounded-full border-zink-100/50 bg-zink-50/50 dark:bg-zink-600/50 dark:border-zink-600">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" class="w-4 h-4 text-primary-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                          </svg>
+                        </span>
+                        <p class="text-zink-500 dark:text-zink-50">
+                          5 team members
+                        </p>
+                      </li>
+                      <li class="flex items-center gap-4">
+                        <span
+                          class="p-1 border rounded-full border-zink-100/50 bg-zink-50/50 dark:bg-zink-600/50 dark:border-zink-600">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" class="w-4 h-4 text-primary-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                          </svg>
+                        </span>
+                        <p class="text-zink-500 dark:text-zink-50">
+                          200+ components
+                        </p>
+                      </li>
+                      <li class="flex items-center gap-4">
+                        <span
+                          class="p-1 border rounded-full border-zink-100/50 bg-zink-50/50 dark:bg-zink-600/50 dark:border-zink-600">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" class="w-4 h-4 text-primary-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                          </svg>
+                        </span>
+                        <p class="text-zink-500 dark:text-zink-50">
+                          40+ built-in pages
+                        </p>
+                      </li>
+                      <li class="flex items-center gap-4">
+                        <span
+                          class="p-1 border rounded-full border-zink-100/50 bg-zink-50/50 dark:bg-zink-600/50 dark:border-zink-600">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" class="w-4 h-4 text-primary-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                          </svg>
+                        </span>
+                        <p class="text-zink-500 dark:text-zink-50">
+                          1 year free updates
+                        </p>
+                      </li>
+                      <li class="flex items-center gap-4">
+                        <span
+                          class="p-1 border rounded-full border-zink-100/50 bg-zink-50/50 dark:bg-zink-600/50 dark:border-zink-600">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" class="w-4 h-4 text-primary-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+                          </svg>
+                        </span>
+                        <p class="text-zink-500 dark:text-zink-50">
+                          Life time technical support
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="p-0 mt-12">
+                    <button
+                      class="min-w-32 w-full rounded-md bg-gradient-to-r from-primary-500 to-primary-600 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-zink-700 focus:shadow-none active:bg-zink-700 hover:bg-zink-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                      type="button">
+                      Buy Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-span-1">
+                <div
+                  class="relative grid h-[35rem] max-w-lg flex-col items-end justify-center overflow-hidden rounded-2xl bg-white">
+                  <div
+                    class="absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent bg-[url('https://images.unsplash.com/photo-1552960562-daf630e9278b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80')] bg-cover bg-center">
+                    <div
+                      class="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 via-black/50">
+                    </div>
+                  </div>
+                  <div class="relative text-center p-6 px-6 py-14 md:px-12">
+                    <h2 class="mb-6 text-3xl font-medium text-white">
+                      How we design and code open-source projects?
+                    </h2>
+                    <h5 class="mb-4 text-xl font-semibold text-primary-600">
+                      Lewis Daniel
+                    </h5>
+                    <img alt="Lewis Daniel"
+                      src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1480&amp;q=80"
+                      class="relative inline-block h-32 w-32 rounded-full border-2 border-primary-600" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="grid gap-5">
+              <div
+                class="chart bg-white border border-zink-50 shadow-xl p-4 rounded-2xl dark:bg-zink-700 dark:border-zink-600/50">
+                <div class="chart-header flex justify-between items-center">
+                  <div>
+                    <h2 class="text-3xl font-bold flex items-center">854 <span
+                        class="text-primary-500 text-base ml-2"><i class="ri-arrow-up-line"></i> 25 upward</span></h2>
+                  </div>
+                  <i class="ri-more-2-fill text-3xl cursor-pointer"></i>
+                </div>
+                <div class="chart-bars flex justify-between my-14">
+                  @for (item of chartData; track $index) {
+                  <div
+                    class="bar-container bg-zink-100/40 dark:bg-zink-600/30 rounded-2xl w-5 h-64 relative overflow-hidden">
+                    <div
+                      class="bar absolute inset-0 bg-gradient-to-t from-primary-600 rounded-t-2xl to-primary-500 mt-auto"
+                      [style]="'height:' + item + '%'  "></div>
+                  </div>
+                  }
+                </div>
+                <div class="chart-footer">
+                  <h2 class="text-2xl font-bold flex items-center">Vertical Bars Chart</h2>
+                  <p class="text-zink-400 dark:text-zink-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Ea, quidem ullam. Facere consectetur.</p>
+                </div>
+              </div>
+              <div
+                class="bg-white border border-zink-50 shadow-xl p-4 rounded-2xl dark:bg-zink-700 dark:border-zink-600/50">
+                <ul class="flex flex-col w-full">
+                  <li class="relative flex flex-col gap-2">
+                    <span class="absolute left-0 grid justify-center transition-opacity duration-200 bg-transparent">
+                      <span class="h-full w-0.5 bg-blue-gray-100"></span>
+                    </span>
+                    <div class="flex items-center gap-4">
+                      <span
+                        class="relative z-[2] w-max flex-shrink-0 overflow-hidden rounded-full bg-primary-500 p-2 text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                          aria-hidden="true" class="w-4 h-4">
+                          <path
+                            d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z">
+                          </path>
+                          <path
+                            d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z">
+                          </path>
+                        </svg>
+                      </span>
+                      <h5
+                        class="block font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900 dark:text-zink-50">
+                        Timeline Title Here.
+                      </h5>
+                    </div>
+                    <div class="flex gap-4 pb-8">
+                      <span class="flex-shrink-0 invisible h-full pointer-events-none"></span>
+                      <div>
+                        <p
+                          class="block font-sans text-base antialiased font-normal leading-relaxed text-gray-600 dark:text-zink-50">
+                          The key to more success is to have a lot of pillows. Put it this
+                          way, it took me twenty five years to get these plants, twenty.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="relative flex flex-col gap-2">
+                    <span class="absolute left-0 grid justify-center transition-opacity duration-200 bg-transparent">
+                      <span class="h-full w-0.5 bg-blue-gray-100"></span>
+                    </span>
+                    <div class="flex items-center gap-4">
+                      <span
+                        class="relative z-[2] w-max flex-shrink-0 overflow-hidden rounded-full bg-primary-500 p-2 text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                          aria-hidden="true" class="w-4 h-4">
+                          <path fill-rule="evenodd"
+                            d="M5.25 9a6.75 6.75 0 0113.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 01-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 11-7.48 0 24.585 24.585 0 01-4.831-1.244.75.75 0 01-.298-1.205A8.217 8.217 0 005.25 9.75V9zm4.502 8.9a2.25 2.25 0 104.496 0 25.057 25.057 0 01-4.496 0z"
+                            clip-rule="evenodd"></path>
+                        </svg>
+                      </span>
+                      <h5
+                        class="block font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900 dark:text-zink-50">
+                        Timeline Title Here.
+                      </h5>
+                    </div>
+                    <div class="flex gap-4 pb-8">
+                      <span class="flex-shrink-0 invisible h-full pointer-events-none"></span>
+                      <div>
+                        <p
+                          class="block font-sans text-base antialiased font-normal leading-relaxed text-gray-600 dark:text-zink-50">
+                          The key to more success is to have a lot of pillows. Put it this
+                          way, it took me twenty five years to get these plants, twenty
+                          five years of blood sweat.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="relative flex flex-col gap-2">
+                    <div class="flex items-center gap-4">
+                      <span
+                        class="relative z-[2] flex-shrink-0 overflow-hidden rounded-full bg-primary-500 p-2 text-white dark:text-zink-50">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                          aria-hidden="true" class="w-4 h-4">
+                          <path
+                            d="M10.464 8.746c.227-.18.497-.311.786-.394v2.795a2.252 2.252 0 01-.786-.393c-.394-.313-.546-.681-.546-1.004 0-.323.152-.691.546-1.004zM12.75 15.662v-2.824c.347.085.664.228.921.421.427.32.579.686.579.991 0 .305-.152.671-.579.991a2.534 2.534 0 01-.921.42z">
+                          </path>
+                          <path fill-rule="evenodd"
+                            d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v.816a3.836 3.836 0 00-1.72.756c-.712.566-1.112 1.35-1.112 2.178 0 .829.4 1.612 1.113 2.178.502.4 1.102.647 1.719.756v2.978a2.536 2.536 0 01-.921-.421l-.879-.66a.75.75 0 00-.9 1.2l.879.66c.533.4 1.169.645 1.821.75V18a.75.75 0 001.5 0v-.81a4.124 4.124 0 001.821-.749c.745-.559 1.179-1.344 1.179-2.191 0-.847-.434-1.632-1.179-2.191a4.122 4.122 0 00-1.821-.75V8.354c.29.082.559.213.786.393l.415.33a.75.75 0 00.933-1.175l-.415-.33a3.836 3.836 0 00-1.719-.755V6z"
+                            clip-rule="evenodd"></path>
+                        </svg>
+                      </span>
+                      <h5
+                        class="block font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900 dark:text-zink-50">
+                        Timeline Title Here.
+                      </h5>
+                    </div>
+                    <div class="flex gap-4">
+                      <span class="flex-shrink-0 invisible h-full pointer-events-none"></span>
+                      <div>
+                        <p
+                          class="block font-sans text-base antialiased font-normal leading-relaxed text-gray-600 dark:text-zink-50">
+                          The key to more success is to have a lot of pillows. Put it this
+                          way, it.
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="credits p-6">
+      <h2 class="text-2xl font-bold">Credits and Special Thanks</h2>
+      <ul class="mt-10 max-w-full lg:w-1/2">
+        @for (credit of credits; track $index) {
+          <li class="border-b border-border pb-8 last:border-b-0 dark:border-zink-600/50">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-semibold">{{credit.title}}</h3>
+              @if (credit.year) {
+                <div class="rounded-full bg-zink-50/50 dark:bg-zink-600/40 dark:text-zink-50 py-0.5 px-2.5 border border-transparent text-sm text-zink-600 transition-all shadow-sm">
+                  {{getYear()}}
+                </div>
+              }
+            </div>
+            <a [href]="credit.link" target="_blank" class="text-primary-500"><p>{{credit.name}}</p></a>
+            <div class="text-zink-400 mb-2" [innerHTML]="credit.description"></div>
+            <a
+              [href]="credit.link" target="_blank"
+              class="block hover:opacity-60 rounded-md bg-zink-50/50 dark:bg-zink-600/40 w-36 py-0.5 px-2.5 border border-transparent text-zink-600 dark:text-zink-50 transition-all shadow-sm">
+              Take a look <i class="ri-arrow-right-up-line ml-2 text-xl"></i>
+          </a>
+          </li>
+        }
+      </ul>
+    </footer>
+  </div>
+</div>
+<div
+  class="fixed inset-0 z-[999] grid h-screen w-screen place-items-center bg-black bg-opacity-60 backdrop-blur-sm transition-all duration-300"
+  [class]="showModal ? 'opacity-1 [&div.modal]:translate-y-0 [&>div.modal]scale-[1]' : 'opacity-0 pointer-events-none [&>div.modal]:translate-y-4 [&>div.modal]:scale-[0.9]'">
+  <div data-dialog="modal"
+    class="modal relative m-4 p-4 w-full lg:w-2/5 min-w-[40%] max-w-[90%] lg:max-w-[40%] rounded-lg bg-white dark:bg-zink-700 shadow-sm z-[1000] transition-all duration-300 dark:text-zink-50">
+    <i class="ri-close-large-fill absolute top-3 right-5 text-xl cursor-pointer font-bold z-[999]" (click)="toggleModal()"></i>
+    <div class="relative py-4 leading-normal font-light mt-5">
+      <div class="relative flex w-full justify-between flex-row rounded-xl flex-wrap bg-zink-50/30 border border-zink-50/80 dark:border-zink-600/80 dark:bg-zink-600/30">
+        <div class="p-2">
+          <label for="exportFormat" class="font-bold block px-3">Color model</label>
+          <nav class="flex flex-row gap-1">
+            <div role="button"
+              class="flex w-full items-center justify-start rounded-lg p-0 transition-all hover:bg-zink-50/50 dark:hover:bg-zink-600 focus:bg-zink-50/50 active:bg-primary-100">
+              <label for="hex" class="flex w-full cursor-pointer items-center py-2 px-3">
+                <div class="inline-flex items-center">
+                  <label class="relative flex items-center cursor-pointer" for="hex">
+                    <input name="exportFormat" [(ngModel)]="exportFormat" (ngModelChange)="createShaped()" type="radio" value="hex"
+                      class="peer h-5 w-5 cursor-pointer appearance-none rounded-full border border-zink-100 dark:border-zink-600 checked:border-primary-500 dark:checked:border-primary-500 transition-all"
+                      id="hex" />
+                    <span
+                      class="absolute bg-primary-500 w-3 h-3 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
+                  </label>
+                  <label class="ml-2 cursor-pointer text-sm" for="hex">
+                    hex
+                  </label>
+                </div>
+              </label>
+            </div>
+            <div role="button"
+              class="flex w-full items-center justify-start rounded-lg p-0 transition-all hover:bg-zink-50/50 dark:hover:bg-zink-600 focus:bg-zink-50/50 active:bg-primary-100">
+              <label for="p3" class="flex w-full cursor-pointer items-center py-2 px-3">
+                <div class="inline-flex items-center">
+                  <label class="relative flex items-center cursor-pointer" for="p3">
+                    <input name="exportFormat" [(ngModel)]="exportFormat" (ngModelChange)="createShaped()" type="radio" value="p-3"
+                      class="peer h-5 w-5 cursor-pointer appearance-none rounded-full border border-zink-100 dark:border-zink-600 checked:border-primary-500 dark:checked:border-primary-500 transition-all"
+                      id="p3" />
+                    <span
+                      class="absolute bg-primary-500 w-3 h-3 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
+                  </label>
+                  <label class="ml-2 cursor-pointer text-sm" for="p3">
+                    p-3
+                  </label>
+                </div>
+              </label>
+            </div>
+            <div role="button"
+              class="flex w-full items-center justify-start rounded-lg p-0 transition-all hover:bg-zink-50/50 dark:hover:bg-zink-600 focus:bg-zink-50/50 active:bg-primary-100">
+              <label for="oklch" class="flex w-full cursor-pointer items-center py-2 px-3">
+                <div class="inline-flex items-center">
+                  <label class="relative flex items-center cursor-pointer" for="oklch">
+                    <input name="exportFormat" [(ngModel)]="exportFormat" (ngModelChange)="createShaped()" type="radio" value="oklch"
+                      class="peer h-5 w-5 cursor-pointer appearance-none rounded-full border border-zink-100 dark:border-zink-600 checked:border-primary-500 dark:checked:border-primary-500 transition-all"
+                      id="oklch" />
+                    <span
+                      class="absolute bg-primary-500 w-3 h-3 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
+                  </label>
+                  <label class="ml-2 cursor-pointer text-sm" for="oklch">
+                    oklch
+                  </label>
+                </div>
+              </label>
+            </div>
+          </nav>
+        </div>
+        
+        <div class="p-2">
+          <label for="tailwindVersion" class="font-bold block px-3">TailwindCSS version</label>
+          <nav class="flex flex-row gap-1">
+            <div role="button"
+              class="flex w-full items-center justify-start rounded-lg p-0 transition-all hover:bg-zink-50/50 dark:hover:bg-zink-600 focus:bg-zink-50/50 active:bg-primary-100">
+              <label for="v3" class="flex w-full cursor-pointer items-center py-2 px-3">
+                <div class="inline-flex items-center">
+                  <label class="relative flex items-center cursor-pointer" for="v3">
+                    <input name="tailwindVersion" [(ngModel)]="tailwindVersion" type="radio" value="v3"
+                      class="peer h-5 w-5 cursor-pointer appearance-none rounded-full border border-zink-100 dark:border-zink-600 checked:border-primary-500 dark:checked:border-primary-500 transition-all"
+                      id="v3" />
+                    <span
+                      class="absolute bg-primary-500 w-3 h-3 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
+                  </label>
+                  <label class="ml-2 cursor-pointer text-sm" for="v3">
+                    v3
+                  </label>
+                </div>
+              </label>
+            </div>
+            <div role="button"
+              class="flex w-full items-center justify-start rounded-lg p-0 transition-all hover:bg-zink-50/50 dark:hover:bg-zink-600 focus:bg-zink-50/50 active:bg-primary-100">
+              <label for="v4" class="flex w-full cursor-pointer items-center py-2 px-3">
+                <div class="inline-flex items-center">
+                  <label class="relative flex items-center cursor-pointer" for="v4">
+                    <input name="tailwindVersion" [(ngModel)]="tailwindVersion" type="radio" value="v4"
+                      class="peer h-5 w-5 cursor-pointer appearance-none rounded-full border border-zink-100 dark:border-zink-600 checked:border-primary-500 dark:checked:border-primary-500 transition-all"
+                      id="v4" />
+                    <span
+                      class="absolute bg-primary-500 w-3 h-3 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
+                  </label>
+                  <label class="ml-2 cursor-pointer text-sm relative" for="v4">
+                    v4 <i class="ri-sparkling-fill text-primary-500 absolute text-sm -top-2 -right-4"></i>
+                  </label>
+                </div>
+              </label>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="relative code w-full bg-zink-700 border border-zink-50/80 dark:border-zink-600/80 dark:bg-zink-600/30 p-4 rounded-xl mt-10">
+        <div (click)="copyToClipboard()" 
+              class="absolute top-5 cursor-pointer transition-all duration-300 bg-zink-600/90 right-5 border-2 border-primary-600/50 rounded-lg border-zink-600/80 flex justify-items-center items-center p-2 w-10 h-10"
+              [class]="textCopied ? 'w-auto' : ''">
+          <i class="ri-clipboard-line text-xl text-primary-500"></i>
+          <span class="ml-2 font-semibold text-zink-50" [class]="textCopied ? '' : 'hidden'">Code copied!</span>
+        </div>
+        <pre class="antialiased text-zink-50 dark:text-zink-50 overflow-x-auto theme-stackoverflow-light-min">
+{{tailwindVersion == 'v3' ? createVersion3Config(shaped) : createVersion4Config(shaped)}}
+        </pre>
+      </div>
+    </div>
+    <div class="flex shrink-0 flex-wrap items-center pt-4 justify-end">
+      <button data-dialog-close="true"
+      (click)="toggleModal()"
+        class="rounded-md border font-semibold border-transparent py-2 px-4 text-center text-sm transition-all text-zink-600 dark:text-zink-50 hover:bg-zink-100 dark:hover:bg-zink-600 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+        type="button">
+        Close window
+      </button>
+    </div>
+  </div>
+</div>

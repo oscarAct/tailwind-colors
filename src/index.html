@@ -1,13 +1,37 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="" data-theme="dark">
+
 <head>
   <meta charset="utf-8">
-  <title>TailwindColors</title>
+  <title>Tailwind Color Palette</title>
   <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, max-scale=1">
+  <meta name="description"
+    content="Easily create and customize Tailwind CSS color palettes with our intuitive palette generator. Explore, design, and preview beautiful color schemes tailored for your projects. Perfect for designers and developers looking to enhance their UI with Tailwind CSS.">
+  <!-- Open graph -->
+  <meta property="og:title" content="Tailwind CSS Color Palette Generator">
+  <meta property="og:description"
+    content="Easily create and customize Tailwind CSS color palettes with our intuitive palette generator. Explore, design, and preview beautiful color schemes tailored for your projects. Perfect for designers and developers looking to enhance their UI with Tailwind CSS.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tailwindcolorpalette.com">
+  <meta property="og:image" content="./assets/images/logo-without-text.png">
+
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0GJ8Z717ST"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-0GJ8Z717ST');
+  </script>
+
 </head>
-<body>
-  <app-root></app-root>
+
+<body class="flex min-h-full bg-white antialiased dark:bg-zink-900 transition-all duration-300">
+  <app-root class="w-full"></app-root>
 </body>
+
 </html>

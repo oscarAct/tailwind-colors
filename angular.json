@@ -29,12 +29,17 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "/assets"
               }
             ],
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": ["node_modules/@material-tailwind/html/scripts/dialog.js"]
           },
           "configurations": {
             "production": {
@@ -98,5 +103,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "6176516e-3cc6-4910-b6ac-7e724b0810d5"
   }
 }
